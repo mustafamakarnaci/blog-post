@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useState } from 'react'
 import '../../ChangeSettings.css';
 import { Card, Form } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -8,7 +8,6 @@ import UserContext from '../../contexts/UserContext';
 
 const ChangePassword = ({ onChangePassword }) => {
 
-    const { user } = useContext(UserContext);
     const [password, setPassword] = useState('');
     const [passwordAgain, setPasswordAgain] = useState('');
     const [error, setError] = useState('');

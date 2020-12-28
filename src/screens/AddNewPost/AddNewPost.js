@@ -1,7 +1,7 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import Button from '../../components/Button/Button';
-import { Form, Modal, Alert, Container, Col, Card } from 'react-bootstrap';
+import { Form, Col, Card } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { createNewPost } from '../../services/api';
 import UserContext from '../../contexts/UserContext';

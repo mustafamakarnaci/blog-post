@@ -14,20 +14,20 @@ const Header = () => {
 
   const { isAuthenticated } = useContext(SessionContext);
   const { setIsShow } = useContext(ShowModalContext);
-  const { isShow } = useContext(ShowModalContext);
+
   const [show, setShow] = useState([]);
 
   const handleClick = (title) => {
 
     if (title === 'Login' || title === 'login') {
-      console.log(title);
+     
       setShow({
         login: true,
         signup: false,
       });
-      console.log(show);
+     
     } else {
-      console.log(title);
+     
       setShow({
         login: false,
         signup: true,
@@ -62,7 +62,6 @@ const Header = () => {
         <Nav>
 
           {routes.filter((route) => route.isLink == true && isAuthenticated == false && route.isPrivate == false).map((route) => (
-
 
             <li className="nav-item">
               <Link className="text-decoration-none nav-link" onClick={() => handleClick(route.title)} >

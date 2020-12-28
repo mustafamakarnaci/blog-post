@@ -8,11 +8,9 @@ import PrivateRoute from '../../utils/PrivateRoute';
 import '../../App.css';
 const Content = () => {
     const { isAuthenticated } = useContext(SessionContext);
-    const handleStyle = () => {
-        return isAuthenticated ? "home-background" : "";
-    }
+    
     return (
-        <Container  className="dashboard-bg">
+        <Container>
             <Switch>
                 {routes.map((route) =>
                     route.isPrivate ? (

@@ -25,12 +25,11 @@ const Login = () => {
   useEffect(() => {
     
     const init = async () => {
-      
-       return await getUsers();
-     
+      const { data } =  await getUsers();
+      setUsers(data);
     }
-    const { data } = init();
-    setUsers(data);
+   init();
+    
   }, []);
 
   const handleSubmit = (event) => {
