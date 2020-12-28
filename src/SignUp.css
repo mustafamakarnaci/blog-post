@@ -1,81 +1,40 @@
-.App {
-  text-align: center;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-.container-width {
-  width: 100%;
-  height: 100%;
-}
-.footer-position {
-  width:100%
-}
-.footer-text{
-  font-size:0.75rem;
-  margin:0;
-}
-.home-background {
-  width: 100%;
-  -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
-  filter: grayscale(100%);
-  /* Link to your background image using in the property below! */
-  background: scroll center url('./img/home-bg.jpg');
-  background-size: cover;
-}
-.dashboard-bg {
-  width: 100%;
-  -webkit-filter: grayscale(20%); /* Safari 6.0 - 9.0 */
-  filter: grayscale(20%);
-  /* Link to your background image using in the property below! */
-  background: scroll center url('./img/home-bg.jpg');
-  background-size: cover;
+:root {
+  --input-padding-x: 1.5rem;
+  --input-padding-y: 0.75rem;
 }
 
 
-.slider-home{
-  object-fit: cover;
-}
-.slider-radius{
-  border-radius: 1em;
-}
-
-
-
-/*
-.card-signin {
+.card-signup {
   border: 0;
-  border-radius: 1rem;
+ 
   box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
   overflow: hidden;
 }
-
-.card-signin .card-title {
-  margin-bottom: 2rem;
-  font-weight: 300;
-  font-size: 1.5rem;
-}
-
-.card-signin .card-img-left {
-  width: 45%;
-  /* Link to your background image using in the property below! 
-  background: scroll center
-    url('https://source.unsplash.com/WEQbe2jBg40/414x512');
+.card-signup .card-img-left {
+  width: 25%;
+  -webkit-filter: grayscale(75%); /* Safari 6.0 - 9.0 */
+  filter: grayscale(75%);
+  /* Link to your background image using in the property below! */
+  background: scroll center url('./img/login-img.jpg');
   background-size: cover;
 }
 
-.card-signin .card-body {
+.card-body .card-title {
+  border-bottom: 0.1em solid rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+.card-signup .card-body {
   padding: 2rem;
 }
 
-.form-signin {
+.form-signup {
   width: 100%;
 }
 
-.form-signin .btn {
+.form-signup .form-btn {
   font-size: 80%;
   border-radius: 5rem;
   letter-spacing: 0.1rem;
@@ -106,7 +65,7 @@
   display: block;
   width: 100%;
   margin-bottom: 0;
-  /* Override default `<label>` margin 
+  /* Override default `<label>` margin */
   line-height: 1.5;
   color: #495057;
   border: 1px solid transparent;
@@ -155,6 +114,3 @@
   color: white;
   background-color: #3b5998;
 }
-
-
-*/
