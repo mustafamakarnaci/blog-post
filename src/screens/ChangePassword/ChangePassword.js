@@ -20,10 +20,7 @@ const ChangePassword = ({ onChangePassword }) => {
         } else {
             setError('Must be same');
         }
-       
     }
-   
- 
 
     return (
 

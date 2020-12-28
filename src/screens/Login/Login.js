@@ -21,7 +21,6 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [users, setUsers] = useState([]);
-  const [show, setShow] = useState(true);
 
   useEffect(() => {
     
@@ -46,10 +45,7 @@ const Login = () => {
     //IS USER EXIST
     const userIsExist = (users.find(user =>
       email === user.email))
-
     
-    
-
     if (userIsExist) {
       setUser(userTemp);
 

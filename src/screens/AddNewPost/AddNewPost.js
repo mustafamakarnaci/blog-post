@@ -5,7 +5,7 @@ import { Form, Modal, Alert, Container, Col, Card } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { createNewPost } from '../../services/api';
 import UserContext from '../../contexts/UserContext';
-import Error from '../../components/Error/Error';
+import ErrorMessage from '../../components/ErrorMessage/ErrorMessage';
 import Loader from '../../components/Loader/Loader';
 import '../../AddNewPost.css'
 
@@ -21,16 +21,14 @@ const AddNewPost = () => {
         console.log(user);
         const form = event.currentTarget;
         if (form.checkValidity() === false) {
-            console.log('hata');
+            
             event.preventDefault();
             event.stopPropagation();
         } else {
             setValidated(true);
             handleCreateNewPost();
         }
-
         event.preventDefault();
-
 
     }
     const handleCreateNewPost = async () => {
@@ -43,14 +41,15 @@ const AddNewPost = () => {
             setLoading(true);
             const { data } = await createNewPost(newPost);
             setLoading(false);
-            console.log(data);
             history.push(`/posts/${data.id}`);
 
         } catch (err) {
             setError(err.message);
         }
     }
-
+if(loading){
+    return <Loader className="m-auto" />
+}
 
     return (
             <div className="newPost-card mt-5 mx-auto">
@@ -109,6 +108,7 @@ const AddNewPost = () => {
                                 feedback="You must agree before submitting."
                             />
                         </Form.Group>
+                        {error && <ErrorMessage error={error} />}
                         <Button className="form-btn btn-block my-3" variant="dark" type="submit" text="Create" />
                     </Form>
                 </div>

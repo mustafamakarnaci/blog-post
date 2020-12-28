@@ -23,7 +23,6 @@ describe('Login', () => {
         
     });
 
-
     test('check email validation', () => {
         const { container } = render (<Login/>);
         const inputElement = container.querySelector('input');
@@ -32,7 +31,4 @@ describe('Login', () => {
         expect(emailChecker(inputElement.value)).toBe(true);
         
     });
-
-
-
 });

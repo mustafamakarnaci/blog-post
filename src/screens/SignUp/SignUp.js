@@ -9,8 +9,7 @@ import SessionContext from '../../contexts/SessionContext';
 import { createNewUser, getUsers } from '../../services/api';
 
 import '../../SignUp.css';
-
-
+import { emailChecker, fullnameChecker, passwordChecker } from '../../utils/checkInputs';
 
 const SignUp = () => {
     const history = useHistory();
@@ -41,7 +40,6 @@ const SignUp = () => {
         setValidated(true);
         console.log('handlesubmit');
         isUserExist() ? setError('Username or email already exist!') : handleUserRegister();
-
     };
 
     const isUserExist = async () => {
@@ -51,7 +49,6 @@ const SignUp = () => {
         } catch (err) {
             setError(err);
         }
-
         return users.some((user) => userRegister.fullname === user.username || user.username === userRegister.email);
     }
 
@@ -70,8 +67,9 @@ const SignUp = () => {
     }
 
     if (loading) {
-        return <Loader />
+        return <Loader className="m-auto"/>
     }
+
 
     return (
 
@@ -82,7 +80,6 @@ const SignUp = () => {
                 <Card.Title className="card-title text-center pb-4">
                     Sign Up
                             </Card.Title>
-
                 <Form
                     className="form-signup"
                     noValidate validated={validated} onSubmit={handleSubmit}>
@@ -94,8 +91,8 @@ const SignUp = () => {
                                 className="form-input"
                                 required
                                 type="text"
-                                placeholder="Full Name"
-                                onChange={(event) => setUserRegister({
+                                placeholder="Fullname"
+                                onChange={(event) => fullnameChecker(event.target.value) === null ? setError("You shouldn't enter speacial character and number to creata a fullname") : setUserRegister({
                                     ...userRegister,
                                     fullname: event.target.value,
                                 })}
@@ -129,10 +126,12 @@ const SignUp = () => {
                             <Form.Control
                                 className="form-input"
                                 type="password" placeholder="Password" required
-                                onChange={(event) => setUserRegister({
-                                    ...userRegister,
-                                    password: event.target.value,
-                                })}
+                                onChange={(event) => passwordChecker(event.target.value) === null ?
+                                    setError('It must contain at least one a special character, lowercase, uppercase and number.') :
+                                    setUserRegister({
+                                        ...userRegister,
+                                        password: event.target.value,
+                                    })}
                             />
                             <Form.Label>Password</Form.Label>
                             <Form.Control.Feedback type="invalid">
@@ -146,10 +145,12 @@ const SignUp = () => {
                             <Form.Control
                                 className="form-input"
                                 type="email" placeholder="Email" required
-                                onChange={(event) => setUserRegister({
-                                    ...userRegister,
-                                    email: event.target.value,
-                                })}
+                                onChange={(event) => !emailChecker(event.target.value)
+                                    ? setError('example@example.com')
+                                    : setUserRegister({
+                                        ...userRegister,
+                                        email: event.target.value,
+                                    })}
                             />
                             <Form.Label>Email</Form.Label>
                             <Form.Control.Feedback type="invalid">
